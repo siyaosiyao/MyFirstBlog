@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--注册-->
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>注册</title>
+        <link rel="stylesheet" type="text/css" href="Register.css"/>
+    </head>
+    <body>
+        <div id="oDiv1">
+            <div id="oDiv2">
+               <div id="divCircle"><img id="imgCircle" src="UI\TIM.jpg" alt="头像"></div>
+                <div>
+                    <span>昵称:</span>
+                    <input type="text" placeholder="请输入账号"/>
+                    <span id='alert1' style="font-size:15px;color:brown;"></span>
+                </div>
+                <div>
+                    <span>密码：</span>
+                    <input class="passWord" type="password" placeholder="请输入密码"/>
+                    <input type="checkbox" style="width:15px;height:15px;vertical-align:middle;margin:0;"/>
+                    <span style="font-size:15px;">显示密码</span>
+                    <span id="alert2" style="font-size:15px;color:brown;"></span>
+                </div>
+                <div>
+                    <span>确认密码：</span>
+                    <input class="passWord" type="password" placeholder="请再次输入密码"/>
+                    <input type="checkbox" style="width:15px;height:15px;vertical-align:middle;margin:0;"/>
+                    <span style="font-size:15px;">显示密码</span>
+                    <span id="alert3" style="font-size:15px;color:brown;"></span>
+                </div>
+                <div id="clickRigister"><span>完成注册</span></div> 
+            </div>  
+        </div>
+        <script src="Register.js"></script>
+        <script src="..\Ajax\AjaxOfRegister.js"></script>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>servlet.RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MessageCompleteServlet</servlet-name>
+        <servlet-class>servlet.MessageCompleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MessageCompleteServlet</servlet-name>
+        <url-pattern>/MessageComplete</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>WriteArticleServlet</servlet-name>
+        <servlet-class>servlet.WriteArticleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WriteArticleServlet</servlet-name>
+        <url-pattern>/WriteArticle</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateArticleServlet</servlet-name>
+        <servlet-class>servlet.updateArticleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>updateArticleServlet</servlet-name>
+        <url-pattern>/updateArticle</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getArticleServlet</servlet-name>
+        <servlet-class>servlet.getArticleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getArticleServlet</servlet-name>
+        <url-pattern>/getArticle</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getAllArticleServlet</servlet-name>
+        <servlet-class>servlet.getAllArticleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getAllArticleServlet</servlet-name>
+        <url-pattern>/getAllArticle</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteArticleServlet</servlet-name>
+        <servlet-class>servlet.deleteArticleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteArticleServlet</servlet-name>
+        <url-pattern>/deleteArticle</url-pattern>
+    </servlet-mapping>
+
+</web-app>

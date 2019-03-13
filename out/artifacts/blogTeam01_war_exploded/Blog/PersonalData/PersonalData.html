@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>个人资料</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="PersonalData.css"/>
+    </head>
+    <body>
+        <div id="oDiv1">
+            <div id="oDiv2">
+                <div id="leftDiv"></div>
+                <div id="data">
+                    <div id="head"><p>个人资料</p></div>
+                    <div id="arm">
+                        <div><img src="UI\TIM.jpg" alt="您的头像"></div>
+                        <p>修改头像</p>
+                    </div>
+                    <div id='form'>
+                        <div><span>昵称：</span><input type="text" placeholder="请输入新的昵称"></div> 
+                        <div><span>实名：</span><input type="text" placeholder="请输入您的实名"></div>
+                        <div id='align1'>
+                            <span>地区：</span>
+                            <select>
+                                <option value="North">北部战区</option>
+                                <option value="South">南部战区</option>
+                                <option value="Middle">中部战区</option>
+                                <option value="West">西部战区</option>
+                                <option value="East">东部战区</option>
+                            </select>
+                        </div> 
+                        <div id='align2'>
+                        <span>性别：</span>
+                        <label><input type="radio" name="sex" value="female" checked='checked'>女</label> 
+                        <label><input type="radio" name="sex" value="male">男</label>   
+                        </div>
+                        <div id='align3'>
+                            <span style="position:relative;top:-134px;">简介：</span>
+                            <textarea name="" placeholder="请输入简介"></textarea>
+                        </div>
+                        <div id='submit'><span>发布</span></div>
+                    </div>                  
+                </div>
+                <div id='functionList'>
+                    <div><img id='important' src="UI\Space.jpg" alt="网络技术工作室" ></div>
+                    <div class="special"><img src="UI\Homepage.jpg" alt="我的主页"><p>我的主页</p></div>
+                    <div class="special"><img src="UI\personalData.jpg" alt="个人资料"><p>个人资料</p></div>
+                    <div class="special"><img src="UI\Write.jpg" alt="写博客"><p>写博客</p></div>
+                    <div class="special"><img src="UI\Search.jpg" alt="博客检索"><p>博客检索</p></div>
+                </div>
+                <div id='userList'>
+                    <div><img src="UI\TIM.jpg" alt="您的头像"></div>
+                    <p id='nameClick'>用户名：</p>
+                    <div id='sentenceClick'>
+                        <p style="font-size:10px;text-align:center;">这个人好懒,还没个性签名哦！</p>
+                    </div>
+                    <p>日志:</p>
+                    <p><a href="..\Login\Login.html">退出登录</a></p>
+                </div>
+            </div>
+        </div>
+        <script src="PersonalData.js"></script>
+        <script src="../Ajax/AjaxOfPersonalData.js"></script>
+    </body>
+</html>

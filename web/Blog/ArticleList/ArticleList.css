@@ -1,0 +1,178 @@
+*{
+    font-size: 20px;
+    font-family: 幼圆;
+}
+#oDiv1{
+    position: relative;
+    left:15px;
+    top:40px;
+    width:1320px;
+    height:600px;
+    background-color: #eaf9e9;
+}
+#oDiv2{
+    height: inherit; 
+    box-shadow: 10px -10px 10px #888 ;
+    background: linear-gradient(90deg,rgba(204,194,194,0.5) 3%,transparent 0),
+    linear-gradient(rgba(204,194,194,0.5) 3%,transparent 0);
+    background-size: 30px 29px;
+}
+#leftDiv{   /*左侧空白部分*/
+    float: left;
+    height: inherit;
+    width:330px;
+    background-color: #D5f0B7;
+    border-radius: 10px;
+    margin: 0 10px 0 10px;
+}
+#articleDiv{    /*中间部分的背景*/
+     float: left;
+     position: relative;
+     top:25px;
+     width: 600px;
+     height: 550px;
+     background-color: #D5f0B7;
+     border-radius: 10px;
+     margin: 0 10px 0 10px;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     flex-wrap: wrap;
+     overflow: scroll;
+}
+#articleDiv div:hover{
+   background-color: rgb(191, 235, 141);
+   cursor: pointer;
+}
+#articleDiv div:active{
+    background-color: rgb(169, 240, 87); 
+}
+::-webkit-scrollbar{   /*滚动条宽与背景颜色*/
+    width:6px;
+    background-color:#D5f0B7;
+}
+::-webkit-scrollbar-track{   /*定义轨道的样式*/
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb{   /*滑块的样式*/
+    background-color: dimgrey;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-button{  /*定义上下按钮的样式*/
+    background-color: #D5f0B7;
+}
+#articleDiv div{
+    width: 560px;
+    height:170px;
+    background-color:#eaf9e9;
+    border-radius: 10px;
+    margin:5px;
+    padding: 5px;
+}
+#functionList{     /*右边部分*/
+    float: left;
+    height: 310px;
+    width:330px;
+    background-color: #D5f0B7;
+    margin:0px 10px 5px 10px;
+}
+#functionList div{
+    width: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    padding: 0;
+}
+.special:hover{   /*鼠标移动样式*/
+    background-color: rgb(191, 235, 141);
+    cursor: pointer;
+}
+.special:active{   /*鼠标点击样式*/
+    background-color: rgb(169, 240, 87);   
+}
+#functionList img{
+    float: left;
+    width:42.5px;
+    height:42.5px;
+}
+#important{
+    width:323px !important;
+    height:140px !important;
+    position: relative;
+    left:4px;
+    top:4px;
+}
+#functionList div p{
+    margin:0;
+    font-weight: bold;
+    line-height: 42.5px;
+    position: relative;
+    left:80px;
+}
+#userList{
+    float: left;
+    height: 280px;
+    width:330px;
+    background-color: #D5f0B7;
+    border-radius: 10px;
+    margin:5px 10px 0px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#userList a{
+    text-decoration:none;
+    color: black;
+    position: relative;
+    top:18px;
+    font-size: 14px;
+    font-weight: bold;
+}
+#userList a:hover{
+    cursor: pointer;
+    color:dimgray;
+}
+#useLidt a:active{
+    cursor: pointer;
+    color: dimgrey;
+}
+#userList div{
+    width:80px;
+    height:80px;
+    overflow: hidden;
+    border-radius: 40px;
+}
+#userList p{
+    font-size:17px;
+    font-weight: bold;
+}
+#nameClick{
+    margin:17px;
+    border-radius:5px;
+    cursor: pointer;
+}
+#nameClick:hover{
+    background-color:rgb(191, 235, 141);
+}
+#nameClick:active{
+    background-color: rgb(169, 240, 87);
+}
+#sentenceClick{
+    width:300px !important;
+    height:30px !important;
+    background-color:#eaf9e9;
+    border-radius: 5px !important;
+    cursor: pointer;
+}
+#sentenceClick:hover{
+    background-color:rgb(191, 235, 141);
+}
+#sentenceClick:active{
+    background-color: rgb(169, 240, 87);
+}
+#userList img{
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+}
