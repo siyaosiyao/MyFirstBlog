@@ -5,7 +5,33 @@ public class Blog {
     int userId;        //用户id
     String Title;      //文章标题
     String content;    //文章内容
+    String year;       //年
+    String month;      //月
+    String day;        //日
 
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
 
     public int getUserId(){return userId;}
 

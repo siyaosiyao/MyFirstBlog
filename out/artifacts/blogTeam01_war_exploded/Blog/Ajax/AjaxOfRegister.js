@@ -32,7 +32,6 @@ function AjaxRun(){
 }
 
 xhrForregister.onload=function(){
-    let object=JSON.parse(xhrForregister.responseText);
     if(xhrForregister.status==200&&xhrForregister.readyState==4){
         let object=JSON.parse(xhrForregister.responseText);
         if(object.code==1){

@@ -20,7 +20,7 @@ $('submit').addEventListener('click',AjaxRun,false);
 function AjaxRun(){
     if(inputText.value.length!=0&&inputArea.value.length!=0){
         if(xhrForwrite){
-            var daTa='Title='+inputText.value+'&'+'content='+inputArea.value;    
+            var daTa='Title='+inputText.value+'&'+'content='+inputArea.value+'&'+date.getFullYear()+'&'+date.getMonth()+'&'+date.getDay();
             var url="/WriteArticle?"+daTa;    //密码:document.getElementsByTagName('input')[1].value;格式都是字符串
             xhrForwrite.open("get",url,true);
             xhrForwrite.send(null);

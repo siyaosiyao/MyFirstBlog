@@ -78,9 +78,10 @@ pageI[1].onclick=function(){
 }
 pageI[3].onclick=function(){
     window.location='../writeArticle/writeArticle.html';
+
 }
 pageI[4].onclick=function(){
-    window.location='';
+window.location='../Search/Search.html';
 }
 
 

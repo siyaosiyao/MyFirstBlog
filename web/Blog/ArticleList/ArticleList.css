@@ -25,26 +25,45 @@
     border-radius: 10px;
     margin: 0 10px 0 10px;
 }
-#articleDiv{    /*中间部分的背景*/
-     float: left;
-     position: relative;
-     top:25px;
-     width: 600px;
-     height: 550px;
-     background-color: #D5f0B7;
-     border-radius: 10px;
-     margin: 0 10px 0 10px;
-     display: flex;
-     justify-content: space-around;
-     align-items: center;
-     flex-wrap: wrap;
-     overflow: scroll;
+#articleDiv{    /*中间部分的背景*/                           
+    float: left;
+    position: relative;
+    top:25px;
+    width: 600px;
+    height: 550px;
+    background-color: #D5f0B7;
+    border-radius: 10px;
+    margin: 0 10px 0 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    overflow: scroll;
 }
-#articleDiv div:hover{
+
+
+/*备份*/
+/* #articleDiv{      
+    float: left;
+    position: relative;
+    top:25px;
+    width: 600px;
+    height: 550px;
+    background-color: #D5f0B7;
+    border-radius: 10px;
+    margin: 0 10px 0 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: scroll;
+}*/
+
+.vis1:hover{
    background-color: rgb(191, 235, 141);
    cursor: pointer;
 }
-#articleDiv div:active{
+.vis1:active{
     background-color: rgb(169, 240, 87); 
 }
 ::-webkit-scrollbar{   /*滚动条宽与背景颜色*/
@@ -61,7 +80,7 @@
 ::-webkit-scrollbar-button{  /*定义上下按钮的样式*/
     background-color: #D5f0B7;
 }
-#articleDiv div{
+.vis1{
     width: 560px;
     height:170px;
     background-color:#eaf9e9;

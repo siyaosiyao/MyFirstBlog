@@ -75,4 +75,12 @@
         <url-pattern>/deleteArticle</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>searchArticleServlet</servlet-name>
+        <servlet-class>servlet.searchArticleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>searchArticleServlet</servlet-name>
+        <url-pattern>/searchArticle</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -1,89 +1,46 @@
-﻿//鑾峰緱鐒︾偣銆俻laceholder娑堝け锛屽け鍘荤劍鐐规椂鍐嶅嚭鐜?
+//获得焦点。placeholder消失，失去焦点时再出现
 var inputText=document.getElementById('writeIt').getElementsByTagName('input')[0];
-
 var inputArea=document.getElementById('writeIt').getElementsByTagName('textarea')[0];
 
-
-
 inputText.onfocus=function(){
-
     this.placeholder="";
-
 }
-
 inputText.onblur=function(){
-
-    this.placeholder="璇疯緭鍏ユ爣棰?;
-
+    this.placeholder="请输入标题";
 }
-
 inputArea.onfocus=function(){
-
     this.placeholder="";
-
 }
-
 inputArea.onblur=function(){
-
-    this.placeholder="璇疯緭鍏ュ唴瀹?;
-
+    this.placeholder="请输入内容";
 }
 
-
-
-//杈撳叆瀛椾綋澶у皬涓€鑷?
+//输入字体大小一致
 inputText.oninput=function(){
-
     this.style.fontSize='15px';
-
 }
-
 inputArea.oninput=function(){
-
     this.style.fontSize='15px';
-
 }
-
 //alert(inputArea.offsetWidth+','+inputArea.offsetHeight);
 
-
-
-//鏂板啓鐨勫崥瀹㈠簲璇ヨ繛鎺ュ埌鍘熸潵鐨勫崥瀹㈠悗闈?
-
+//新写的博客应该连接到原来的博客后面
 
 var onSubmit=document.getElementById('submit');
-
 onSubmit.onclick=function(){
-
-    if(inputText.value!=''&&inputArea.value!=''){     //涓嶅彲鍙戝竷娈嬫枃绔?
-        addNew();
-
+    if(inputText.value!=''&&inputArea.value!=''){     //不可发布残文章
         window.location="../ArticleList/ArticleList.html"
-
     }
-
 }
 
-
-
-//椤甸潰璺宠浆
-
+//页面跳转
 var pageI=document.getElementById('functionList').getElementsByTagName('div');
-
 pageI[1].onclick=function(){
-
     window.location='../ArticleList/ArticleList.html';
-
 }
-
 pageI[2].onclick=function(){
-
     window.location='../PersonalData/PersonalData.html';
-
 }
-
 pageI[4].onclick=function(){
-
-    window.location='';
-
+    window.location='../Search/Search.html';
 }

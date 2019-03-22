@@ -20,11 +20,14 @@ public class BlogDaoImpl implements IBlogDao {
         boolean flag = false;
         try{
             conn = JDBCUtil.getConn();
-            String sql = "insert into blog(userId,Title,content) values(?,?,?)";
+            String sql = "insert into blog(userId,Title,content,year,month,day) values(?,?,?,?,?,?)";
             ps = conn.prepareStatement(sql);
             ps.setInt(1,blog.getUserId());
             ps.setString(2,blog.getTitle());
             ps.setString(3,blog.getContent());
+            ps.setString(4,blog.getYear());
+            ps.setString(5,blog.getMonth());
+            ps.setString(6,blog.getDay());
             int num = ps.executeUpdate();
             if(num>0){
                 flag = true;
@@ -44,12 +47,15 @@ public class BlogDaoImpl implements IBlogDao {
         boolean flag = false;
         try{
             conn = JDBCUtil.getConn();
-            String sql = "update blog set Title=?,content=? where userId=? and blogId=?";
+            String sql = "update blog set Title=?,content=?,year=?,month=?,day=? where userId=? and blogId=?";
             ps = conn.prepareStatement(sql);
             ps.setString(1,blog.getTitle());
             ps.setString(2,blog.getContent());
-            ps.setInt(3,blog.getUserId());
-            ps.setInt(4,blog.getBlogId());
+            ps.setString(3,blog.getYear());
+            ps.setString(4,blog.getMonth());
+            ps.setString(5,blog.getDay());
+            ps.setInt(6,blog.getUserId());
+            ps.setInt(7,blog.getBlogId());
             System.out.println(blog.getTitle()+"    "+blog.getContent()+"    "+blog.getUserId()+"     "+blog.getBlogId());
             int num = ps.executeUpdate();
             System.out.println("********"+num);
@@ -166,5 +172,46 @@ public class BlogDaoImpl implements IBlogDao {
             JDBCUtil.close(conn,ps,null);
         }
         return flag;
+    }
+
+    @Override
+    public List<Blog> searchArticle(String year,String month,String day,String Title){
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        List<Blog> list = new ArrayList<>();
+
+        try{
+            conn = JDBCUtil.getConn();
+            String sql = null;
+            if(year.equals("") && month.equals("") && day.equals("")){
+                sql = "select * from blog where Title like '%"+Title+"%'";
+                ps = conn.prepareStatement(sql);
+            }else{
+                sql = "select * from blog where year=? and month=? and day=? and Title like '%"+Title+"%'";
+                ps = conn.prepareStatement(sql);
+                ps.setString(1,"year");
+                ps.setString(2,"month");
+                ps.setString(3,"day");
+            }
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Blog blog = new Blog();
+                blog.setYear(rs.getString("year"));
+                blog.setMonth(rs.getString("month"));
+                blog.setDay(rs.getString("day"));
+                blog.setBlogId(rs.getInt("blogId"));
+                blog.setUserId(rs.getInt("userId"));
+                blog.setContent(rs.getString("content"));
+                blog.setTitle(rs.getString("Title"));
+                list.add(blog);
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.close(conn,ps,rs);
+        }
+        return list;
     }
 }

@@ -43,11 +43,19 @@ public class updateArticleServlet extends HttpServlet {
         int blogId = Integer.parseInt(req.getParameter("blogId"));
         String Title = req.getParameter("Title");
         String content = req.getParameter("content");
+        String year = req.getParameter("year");
+        String month = req.getParameter("month");
+        String day = req.getParameter("day");
+
         System.out.println(userId+"   "+blogId+"   "+Title+"   "+content);
         blog.setUserId(userId);
         blog.setBlogId(blogId);
         blog.setTitle(Title);
         blog.setContent(content);
+        blog.setYear(year);
+        blog.setMonth(month);
+        blog.setDay(day);
+
         IBlogDao dao = new BlogDaoImpl();
         boolean flag = dao.updateArticle(blog);
         System.out.println("1");

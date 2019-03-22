@@ -41,6 +41,7 @@ function AjaxRun(){
 xhrSubmit.onload=function(){//接收服务器响应
     if(xhrSubmit.status==200&&xhrSubmit.readyState==4){
         let object=JSON.parse(xhrSubmit.responseText);
+        console.log(object.code);
         if(object.code==1){
             window.location='../ArticleList/ArticleList.html';
         }

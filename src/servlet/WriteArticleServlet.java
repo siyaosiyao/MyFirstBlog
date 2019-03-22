@@ -5,7 +5,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import dao.IBlogDao;
 import daoImpl.BlogDaoImpl;
-
 import javax.servlet.http.*;
 import java.io.IOException;
 
@@ -29,14 +28,19 @@ public class WriteArticleServlet extends HttpServlet {
         Blog blog = new Blog();
         String Title = req.getParameter("Title");    //文章标题
         String content = req.getParameter("content");//文章内容
+        String year = req.getParameter("year");
+        String month = req.getParameter("month");
+        String day = req.getParameter("day");
 
         blog.setUserId(userId);
         blog.setTitle(Title);
         blog.setContent(content);
+        blog.setYear(year);
+        blog.setMonth(month);
+        blog.setDay(day);
 
         IBlogDao dao = new BlogDaoImpl();
         boolean flag = dao.uploadNewArticle(blog);
-        System.out.println(flag);
         int blogId = dao.getblogId(Title,content);
 
         JSONObject json = new JSONObject();

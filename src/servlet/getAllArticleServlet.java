@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class getAllArticleServlet extends HttpServlet {
     @Override
@@ -31,17 +32,20 @@ public class getAllArticleServlet extends HttpServlet {
         IBlogDao dao = new BlogDaoImpl();
         List<Blog> list = new ArrayList<>();
         list = dao.getAllArticles(userId);
+
+        List<JSON> jsonList = new ArrayList<>();
         //把list中的所有blog对象都转成json返还给前端
-        JSONObject json = new JSONObject();
         for(Blog blog : list){
-            json.put("blogId",blog.getBlogId());
+            JSONObject json = new JSONObject();
             json.put("Title",blog.getTitle());
+            json.put("blogId",blog.getBlogId());
             json.put("content",blog.getContent());
-            try {
-                resp.getWriter().print(JSON.toJSONString(json));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            jsonList.add(json);
+        }
+        try {
+            resp.getWriter().print(JSON.toJSONString(jsonList));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     @Override
