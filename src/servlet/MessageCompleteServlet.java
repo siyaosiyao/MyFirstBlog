@@ -6,10 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import dao.IUserDao;
 import daoImpl.UserDaoImpl;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 public class MessageCompleteServlet extends HttpServlet {
@@ -27,23 +24,15 @@ public class MessageCompleteServlet extends HttpServlet {
 
         User user = new User();
         user.setUserName(userName);
-        user.setPassword(realName);
-        user.setSignature(region);
+        user.setRealName(realName);
+        user.setRegion(region);
         user.setSex(sex);
         user.setSignature(signature);
 
-        Cookie[] cookies = req.getCookies();
+        HttpSession session = req.getSession();
         IUserDao dao = new UserDaoImpl();
-        int id=0;
-//        for(Cookie cookie:cookies){
-//            id = Integer.parseInt(cookie.getValue());
-//        }
-        for(int i=0;i<cookies.length;i++){
-            if(cookies[i].getName().equals("userId")){
-                id= Integer.parseInt(cookies[i].getValue());
-                break;
-            }
-        }
+        int id = (int)session.getAttribute("userId");
+        System.out.println("id是"+id);
         JSONObject json = new JSONObject();
         if(dao.messageUpdate(user,id)){
             json.put("code",1);

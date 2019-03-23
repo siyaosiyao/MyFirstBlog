@@ -6,10 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import dao.IBlogDao;
 import daoImpl.BlogDaoImpl;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +20,13 @@ public class getAllArticleServlet extends HttpServlet {
         resp.setContentType("application/json;charset=utf-8");
 
         int userId = 0;
-        Cookie[] cookies = req.getCookies();
-        for(int i=0;i<cookies.length;i++){
-            if(cookies[i].getName().equals("userId")){
-                userId = Integer.parseInt(cookies[i].getValue());
-            }
-        }
+        HttpSession session = req.getSession();
+//        for(int i=0;i<cookies.length;i++){
+//            if(cookies[i].getName().equals("userId")){
+//                userId = Integer.parseInt(cookies[i].getValue());
+//            }
+//        }
+        userId = (int) session.getAttribute("userId");
         IBlogDao dao = new BlogDaoImpl();
         List<Blog> list = new ArrayList<>();
         list = dao.getAllArticles(userId);

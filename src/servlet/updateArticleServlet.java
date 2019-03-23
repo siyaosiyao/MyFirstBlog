@@ -6,10 +6,7 @@ import daoImpl.BlogDaoImpl;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.JSON;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 public class updateArticleServlet extends HttpServlet {
@@ -30,15 +27,14 @@ public class updateArticleServlet extends HttpServlet {
 //        /* 是否携带cookie */
 //        resp.setHeader("Access-Control-Allow-Credentials", "true");
         int userId = 0;
-        System.out.println("11");
-        Cookie[] cookies = req.getCookies();
-        System.out.println("111");
-        for(int i = 0;i<cookies.length;i++){
-            if(cookies[i].getName().equals("userId")){
-                userId = Integer.parseInt(cookies[i].getValue());
-                break;
-            }
-        }
+        HttpSession session = req.getSession();
+        userId = (int) session.getAttribute("userId");
+//        for(int i = 0;i<cookies.length;i++){
+//            if(cookies[i].getName().equals("userId")){
+//                userId = Integer.parseInt(cookies[i].getValue());
+//                break;
+//            }
+//        }
         Blog blog = new Blog();
         int blogId = Integer.parseInt(req.getParameter("blogId"));
         String Title = req.getParameter("Title");

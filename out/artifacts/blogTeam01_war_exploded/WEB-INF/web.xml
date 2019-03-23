@@ -83,4 +83,16 @@
         <servlet-name>searchArticleServlet</servlet-name>
         <url-pattern>/searchArticle</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>sessionServletTest</servlet-name>
+        <servlet-class>test.sessionServletTest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>sessionServletTest</servlet-name>
+        <url-pattern>/session</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>

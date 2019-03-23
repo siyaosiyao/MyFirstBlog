@@ -16,21 +16,20 @@ public class LoginServlet extends HttpServlet{
         resp.setContentType("application/json;charset=utf-8");
 
         JSONObject jso = new JSONObject();
-        String userId = req.getParameter("userId");
+        int userId = Integer.parseInt(req.getParameter("userId"));
         String password = req.getParameter("password");
         IUserDao dao = new UserDaoImpl();
         //把前端的userId字符型转成数值型
-        int id = Integer.parseInt(userId);
-        boolean flag = dao.login(id,password);
+        boolean flag = dao.login(userId,password);
         if(flag){
             HttpSession session = req.getSession();
             session.setAttribute("userId",userId);
             session.setAttribute("password",password);
             session.setAttribute("session","new");
-            Cookie cookie = new Cookie("userId",userId);
+            //Cookie cookie = new Cookie("userId",userId);
             if(session.isNew()){
-                cookie.setMaxAge(24*60*60);  //cookie最长存活24h
-                resp.addCookie(cookie);
+                //cookie.setMaxAge(24*60*60);  //cookie最长存活24h
+                //resp.addCookie(cookie);
                 jso.put("code",1);
                 jso.put("userId",userId);
                 jso.put("session","new");

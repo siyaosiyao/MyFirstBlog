@@ -16,14 +16,15 @@ public class WriteArticleServlet extends HttpServlet {
         resp.setContentType("application/json;charset=utf-8");
 
         int userId = 0;
-        Cookie[] cookies = req.getCookies();
-        for(int i = 0;i<cookies.length;i++){
-            if(cookies[i].getName().equals("userId")){
-                userId = Integer.parseInt(cookies[i].getValue());
-                break;
-            }
-        }
-        System.out.println(userId);
+//        Cookie[] cookies = req.getCookies();
+//        for(int i = 0;i<cookies.length;i++){
+//            if(cookies[i].getName().equals("userId")){
+//                userId = Integer.parseInt(cookies[i].getValue());
+//                break;
+//            }
+//        }
+        HttpSession session = req.getSession();
+        userId = (int) session.getAttribute("userId");
 
         Blog blog = new Blog();
         String Title = req.getParameter("Title");    //文章标题

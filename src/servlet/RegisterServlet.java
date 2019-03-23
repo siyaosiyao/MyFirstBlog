@@ -25,18 +25,13 @@ public class RegisterServlet extends HttpServlet {
         String password = req.getParameter("password");//密码
         IUserDao dao = new UserDaoImpl();
         boolean flag = dao.register(userName,password);
-        //System.out.println(flag);
-        //System.out.println(dao.getId(userName,password));
-        //json.put("userName",userName);
-        //json.put("password",password);
+        System.out.println(flag);
         if(flag){
             HttpSession session = req.getSession();
             session.setAttribute("userId",dao.getId(userName,password));
             if(session.isNew()){
-                Cookie cookie = new Cookie("userId",String.valueOf(dao.getId(userName,password)));
-                cookie.setMaxAge(24*60*60);
-                resp.addCookie(cookie);
-                json.put("code",1);//注册成功
+                System.out.println("session是new");
+                json.put("code",1);//注册成0功
                 json.put("userId",dao.getId(userName,password));
             }
         }else{
