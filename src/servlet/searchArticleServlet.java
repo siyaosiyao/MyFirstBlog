@@ -12,6 +12,7 @@ import javax.servlet.Servlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,14 +32,16 @@ public class searchArticleServlet extends HttpServlet {
         resp.setHeader("Access-Control-Max-Age", "3600");
         /* 允许跨域的请求头 */
         resp.setHeader("Access-Control-Allow-Headers", "*");
-
+        HttpSession session = req.getSession();
+        int userId = (int)session.getAttribute("userId");
         String year = req.getParameter("year");
         String month = req.getParameter("month");
         String day = req.getParameter("day");
         String Title = req.getParameter("Title");
         IBlogDao dao = new BlogDaoImpl();
 
-        List<Blog> list = dao.searchArticle(year, month, day, Title);
+        System.out.println("year="+year+"month"+month+"day="+day+"userId"+"userId="+userId+"Title="+Title);
+        List<Blog> list = dao.searchArticle(year, month, day, Title,userId);
         list = JDBCUtil.sortByYearMonthDay(list);
         List<JSON> jsonList = new ArrayList<>();
         for (Blog blog : list) {
@@ -48,6 +51,7 @@ public class searchArticleServlet extends HttpServlet {
             json.put("year",blog.getYear());
             json.put("month",blog.getMonth());
             json.put("day",blog.getDay());
+            json.put("blogId",blog.getBlogId());
             jsonList.add(json);
         }
         try {

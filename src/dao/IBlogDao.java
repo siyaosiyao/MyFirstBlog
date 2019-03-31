@@ -19,5 +19,5 @@ public interface IBlogDao {
     //6、删除文章
     boolean deleteArticle(int userId,int blogId);
     //7、检索文章
-    List<Blog> searchArticle(String year,String month,String day,String Title);
+    List<Blog> searchArticle(String year,String month,String day,String Title,int userId);
 }

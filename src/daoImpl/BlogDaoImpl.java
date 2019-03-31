@@ -175,7 +175,7 @@ public class BlogDaoImpl implements IBlogDao {
     }
 
     @Override
-    public List<Blog> searchArticle(String year,String month,String day,String Title){
+    public List<Blog> searchArticle(String year,String month,String day,String Title,int userId){
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -185,8 +185,9 @@ public class BlogDaoImpl implements IBlogDao {
             conn = JDBCUtil.getConn();
             String sql = null;
             if(Integer.parseInt(year)==0 && Integer.parseInt(month)==0 && Integer.parseInt(day)==0){
-                sql = "select * from blog where Title like '%"+Title+"%'";
+                sql = "select * from blog where userId=? and Title like '%"+Title+"%'";
                 ps = conn.prepareStatement(sql);
+                ps.setInt(1,userId);
             }else{
                 sql = "select * from blog where year=? and month=? and day=? and Title like '%"+Title+"%'";
                 ps = conn.prepareStatement(sql);
