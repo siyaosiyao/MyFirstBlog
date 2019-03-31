@@ -39,6 +39,7 @@
     align-items: flex-start;
     flex-wrap: wrap;
     overflow: scroll;
+    display: block;
 }
 
 
@@ -87,6 +88,116 @@
     border-radius: 10px;
     margin:5px;
     padding: 5px;
+}
+#writeIt{    /*中间部分的背景*/
+    float: left;
+    position: relative;
+    top:25px;
+    width: 600px;
+    height: 550px;
+    background-color: #D5f0B7;
+    border-radius: 10px;
+    margin: 0 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    flex-wrap: wrap;
+    display: none;
+}
+#writeIt div{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin:10px 0 20px 40px;
+}
+#submit{
+    width:130px;
+    height:40px;
+    position: relative;
+    left: 252.17px;
+    display: flex;
+    justify-content: center !important;
+    background-color: dodgerblue;
+    color:white;
+    line-height: 40px;
+    border-radius: 10px;
+    margin:0 !important;
+}
+#submit:hover{
+    background-color: rgb(6, 106, 206);
+    cursor: pointer;
+}
+#submit:active{
+    background-color:rgb(61, 138, 216);
+}
+input[type=text]{
+    background-color: #D5f0B7;
+    border:none;
+    margin: 0 0 0 10px;
+}
+input[type=text]:focus{
+    outline: none;
+}
+textarea{
+    resize: none;
+    margin: 0 0 20px 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+}
+textarea:focus{
+    outline: none;
+}
+
+/*placeholder*/
+input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    font-style:italic;
+    font-size: 15px;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-style:italic;
+    font-size: 15px;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-style:italic;
+    font-size: 15px;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-style:italic;
+    font-size: 15px;
+}
+
+textarea::-webkit-input-placeholder { 
+    font-style:italic;
+    font-size: 15px;
+}
+textarea:-moz-placeholder { 
+    font-style:italic;
+    font-size: 15px;
+}
+textarea::-moz-placeholder { 
+    font-style:italic;
+    font-size: 15px;
+}
+textarea:-ms-input-placeholder { 
+    font-style:italic;
+    font-size: 15px;
+}
+
+::-webkit-scrollbar{   /*滚动条宽与背景颜色*/
+    width:6px;
+    background-color:#D5f0B7;
+}
+::-webkit-scrollbar-track{   /*定义轨道的样式*/
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb{   /*滑块的样式*/
+    background-color: dimgrey;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-button{  /*定义上下按钮的样式*/
+    background-color: #D5f0B7;
 }
 #functionList{     /*右边部分*/
     float: left;

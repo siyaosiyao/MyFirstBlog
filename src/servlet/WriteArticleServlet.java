@@ -25,6 +25,7 @@ public class WriteArticleServlet extends HttpServlet {
 //        }
         HttpSession session = req.getSession();
         userId = (int) session.getAttribute("userId");
+        System.out.println("userId是"+userId);
 
         Blog blog = new Blog();
         String Title = req.getParameter("Title");    //文章标题
@@ -33,6 +34,7 @@ public class WriteArticleServlet extends HttpServlet {
         String month = req.getParameter("month");
         String day = req.getParameter("day");
 
+        System.out.println(Title+","+content+","+year+","+month+","+day);
         blog.setUserId(userId);
         blog.setTitle(Title);
         blog.setContent(content);

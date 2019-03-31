@@ -184,15 +184,15 @@ public class BlogDaoImpl implements IBlogDao {
         try{
             conn = JDBCUtil.getConn();
             String sql = null;
-            if(year.equals("") && month.equals("") && day.equals("")){
+            if(Integer.parseInt(year)==0 && Integer.parseInt(month)==0 && Integer.parseInt(day)==0){
                 sql = "select * from blog where Title like '%"+Title+"%'";
                 ps = conn.prepareStatement(sql);
             }else{
                 sql = "select * from blog where year=? and month=? and day=? and Title like '%"+Title+"%'";
                 ps = conn.prepareStatement(sql);
-                ps.setString(1,"year");
-                ps.setString(2,"month");
-                ps.setString(3,"day");
+                ps.setString(1,year);
+                ps.setString(2,month);
+                ps.setString(3,day);
             }
             rs = ps.executeQuery();
             while(rs.next()){

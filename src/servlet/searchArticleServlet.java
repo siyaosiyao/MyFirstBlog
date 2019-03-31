@@ -23,6 +23,15 @@ public class searchArticleServlet extends HttpServlet {
         resp.setCharacterEncoding("utf8");
         resp.setContentType("application/json;charset=utf-8");
 
+                //数据跨域申请
+        resp.setHeader("Access-Control-Allow-Origin","*");
+        //
+        resp.setHeader("Access-Control-Allow-Methods", "*");
+        /* 重新预检验跨域的缓存时间 (s) */
+        resp.setHeader("Access-Control-Max-Age", "3600");
+        /* 允许跨域的请求头 */
+        resp.setHeader("Access-Control-Allow-Headers", "*");
+
         String year = req.getParameter("year");
         String month = req.getParameter("month");
         String day = req.getParameter("day");
@@ -31,6 +40,7 @@ public class searchArticleServlet extends HttpServlet {
 
         List<Blog> list = dao.searchArticle(year, month, day, Title);
         list = JDBCUtil.sortByYearMonthDay(list);
+        List<JSON> jsonList = new ArrayList<>();
         for (Blog blog : list) {
             JSONObject json = new JSONObject();
             json.put("Title", blog.getTitle());
@@ -38,11 +48,12 @@ public class searchArticleServlet extends HttpServlet {
             json.put("year",blog.getYear());
             json.put("month",blog.getMonth());
             json.put("day",blog.getDay());
-            try {
-                resp.getWriter().print(JSON.toJSONString(json));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            jsonList.add(json);
+        }
+        try {
+            resp.getWriter().print(JSON.toJSONString(jsonList));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

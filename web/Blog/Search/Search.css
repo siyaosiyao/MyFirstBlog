@@ -38,7 +38,7 @@
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
-    overflow: scroll;
+    /* overflow: scroll; */
 }
 
 
@@ -59,13 +59,13 @@
     overflow: scroll;
 }*/
 
-.vis1:hover{
+/* .vis1:hover{
    background-color: rgb(191, 235, 141);
    cursor: pointer;
 }
 .vis1:active{
     background-color: rgb(169, 240, 87); 
-}
+} */
 ::-webkit-scrollbar{   /*滚动条宽与背景颜色*/
     width:6px;
     background-color:#D5f0B7;
@@ -167,6 +167,7 @@ input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     position: relative;
     top:10px;
     font-weight: bold;
+    display:block;
 }
 #ifSearch div{
     margin:10px;
@@ -182,6 +183,7 @@ select:focus{
     width:580px;
     height:420px;
     overflow: scroll;
+    display: block;
     /* border: solid;
     border-width: 3px;
     border-color: rgb(145, 212, 90);
@@ -216,6 +218,103 @@ select:focus{
     overflow: hidden;
     padding: 0;
 }
+#writeIt{    /*中间部分的背景*/
+    float: left;
+    width: 600px;
+    height: 550px;
+    background-color: #D5f0B7;
+    border-radius: 10px;
+    margin: 0 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    flex-wrap: wrap;
+    display: none;
+}
+#writeIt div{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin:10px 0 20px 40px;
+}
+#submit{
+    width:130px;
+    height:40px;
+    position: relative;
+    left: 252.17px;
+    display: flex;
+    justify-content: center !important;
+    background-color: dodgerblue;
+    color:white;
+    line-height: 40px;
+    border-radius: 10px;
+    margin:0 !important;
+}
+#submit:hover{
+    background-color: rgb(6, 106, 206);
+    cursor: pointer;
+}
+#submit:active{
+    background-color:rgb(61, 138, 216);
+}
+input[type=text]{
+    background-color: #D5f0B7;
+    border:none;
+    margin: 0 0 0 10px;
+}
+input[type=text]:focus{
+    outline: none;
+}
+input[type=text]{
+    box-shadow: none;
+}
+textarea{
+    resize: none;
+    margin: 0 0 20px 10px;
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+}
+textarea:focus{
+    outline: none;
+}
+
+/*placeholder*/
+input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    font-style:italic;
+    font-size: 15px;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    font-style:italic;
+    font-size: 15px;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    font-style:italic;
+    font-size: 15px;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-style:italic;
+    font-size: 15px;
+}
+
+textarea::-webkit-input-placeholder { 
+    font-style:italic;
+    font-size: 15px;
+}
+textarea:-moz-placeholder { 
+    font-style:italic;
+    font-size: 15px;
+}
+textarea::-moz-placeholder { 
+    font-style:italic;
+    font-size: 15px;
+}
+textarea:-ms-input-placeholder { 
+    font-style:italic;
+    font-size: 15px;
+}
+
 .special:hover{   /*鼠标移动样式*/
     background-color: rgb(191, 235, 141);
     cursor: pointer;

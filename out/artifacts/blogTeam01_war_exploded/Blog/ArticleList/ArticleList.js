@@ -1,19 +1,22 @@
 var myDiary=document.getElementById('userList');    //日志数目
 var sDiary=myDiary.getElementsByTagName('p')[2];
-var myArticles=document.getElementById('articleDiv').getElementsByClassName('vis1');
-sDiary.innerHTML='日志:'+myArticles.length;
 
+
+// sDiary.innerHTML='日志:'+myArticles.length;
 //默认内容
-for(var i=0;i<myArticles.length;i++){
-    var j=i+1;
-    myArticles[i].innerHTML='<h1>您的第'+j+'篇文章的标题</h1>'+
-    '<p style="font-style:Italic;">您的第'+j+'篇文章的内容</p>';
-}
+// for(var i=0;i<myArticles.length;i++){
+//     var j=i+1;
+//     myArticles[i].innerHTML='<h1>您的第'+j+'篇文章的标题</h1>'+
+//     '<p style="font-style:Italic;">您的第'+j+'篇文章的内容</p>';
+// }
+
+
 
 //点击了哪个功能选项
 var whichClick=document.getElementById('functionList').getElementsByTagName('div');
-
 //点击显示个人资料
+whichClick[1].style.backgroundColor='rgb(191, 235, 141)';
+console.log(whichClick[1].style.backgroundColor);
 whichClick[2].onclick=function(){
     window.location='../PersonalData/PersonalData.html';
 }
@@ -39,6 +42,50 @@ oInput.oninput=function(){
     this.style.fontSize='15px';
     this.style.fontWeight='blod';
 }
+
+
+//特殊的，再点击跳转回
+whichClick[1].onclick=function(){
+    document.getElementById("writeIt").style.display='none';
+    document.getElementById('articleDiv').display='block';
+}
+
+//更新博客的页面
+
+//获得焦点。placeholder消失，失去焦点时再出现
+var inputText=document.getElementById('writeIt').getElementsByTagName('input')[0];
+var inputArea=document.getElementById('writeIt').getElementsByTagName('textarea')[0];
+
+inputText.onfocus=function(){
+    this.placeholder="";
+}
+inputText.onblur=function(){
+    this.placeholder="请输入标题";
+}
+inputArea.onfocus=function(){
+    this.placeholder="";
+}
+inputArea.onblur=function(){
+    this.placeholder="请输入内容";
+}
+
+//输入字体大小一致
+
+inputText.oninput=function(){
+    this.style.fontSize='15px';
+}
+inputArea.oninput=function(){
+    this.style.fontSize='15px';
+}
+//alert(inputArea.offsetWidth+','+inputArea.offsetHeight);
+
+//新写的博客应该连接到原来的博客后面
+
+var onSubmit=document.getElementById('submit');
+onSubmit.onclick=function(){
+    
+}
+
 
 // //快速写出年月日
 // var opYear=document.getElementById('year');

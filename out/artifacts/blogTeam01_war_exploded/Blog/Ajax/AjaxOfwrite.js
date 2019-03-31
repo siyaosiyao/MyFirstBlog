@@ -9,18 +9,21 @@ else
   }
 
 function $(id){                     //获取元素
-    return document.getElementById('id');
+    return document.getElementById(id);
 }
 var inputText=document.getElementById('writeIt').getElementsByTagName('input')[0];
 var inputArea=document.getElementById('writeIt').getElementsByTagName('textarea')[0];
 
 $('submit').addEventListener('click',AjaxRun,false);
 
-
+// var date=new Date();
+// console.log(date.getFullYear()+date.getMonth()+date.getDay());
 function AjaxRun(){
+    console.log(42342)
     if(inputText.value.length!=0&&inputArea.value.length!=0){
         if(xhrForwrite){
-            var daTa='Title='+inputText.value+'&'+'content='+inputArea.value+'&'+date.getFullYear()+'&'+date.getMonth()+'&'+date.getDay();
+            var date=new Date();
+            var daTa='Title='+inputText.value+'&'+'content='+inputArea.value+'&'+'year='+date.getFullYear()+'&'+'month='+date.getMonth()+'&'+'day='+date.getDay();
             var url="/WriteArticle?"+daTa;    //密码:document.getElementsByTagName('input')[1].value;格式都是字符串
             xhrForwrite.open("get",url,true);
             xhrForwrite.send(null);
@@ -29,7 +32,7 @@ function AjaxRun(){
     else{
         alert('不可以发布残缺的的文章哦！');
     }
-}
+
 
 xhrForwrite.onload=function(){
     if(xhrForwrite.status==200&&xhrForwrite.readyState==4){
@@ -43,7 +46,7 @@ xhrForwrite.onload=function(){
         }
     }            
 }
-
+}
 
 // if(xhrForwrite.onload){             //接收服务器响应
     

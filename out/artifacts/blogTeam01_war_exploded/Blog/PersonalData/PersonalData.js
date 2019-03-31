@@ -76,6 +76,8 @@ var pageI=document.getElementById('functionList').getElementsByTagName('div');
 pageI[1].onclick=function(){
     window.location='../ArticleList/ArticleList.html';
 }
+pageI[2].style.backgroundColor='rgb(191, 235, 141)';
+console.log(pageI[2].style.backgroundColor);
 pageI[3].onclick=function(){
     window.location='../writeArticle/writeArticle.html';
 

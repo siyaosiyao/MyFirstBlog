@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedSet;
 
 public class getAllArticleServlet extends HttpServlet {
     @Override
@@ -27,12 +28,15 @@ public class getAllArticleServlet extends HttpServlet {
 //            }
 //        }
         userId = (int) session.getAttribute("userId");
+        System.out.println("userId是"+userId);
         IBlogDao dao = new BlogDaoImpl();
+        System.out.println("Continue");
         List<Blog> list = new ArrayList<>();
         list = dao.getAllArticles(userId);
-
+        System.out.println("Continue");
         List<JSON> jsonList = new ArrayList<>();
         //把list中的所有blog对象都转成json返还给前端
+        System.out.println("Continue");
         for(Blog blog : list){
             JSONObject json = new JSONObject();
             json.put("Title",blog.getTitle());

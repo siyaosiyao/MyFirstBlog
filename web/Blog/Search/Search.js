@@ -19,7 +19,8 @@ whichClick[2].onclick=function(){
 whichClick[3].onclick=function(){
     window.location='../writeArticle/writeArticle.html';
 }
-
+whichClick[4].style.backgroundColor='rgb(191, 235, 141)';
+console.log(whichClick[4].style.backgroundColor);
 
 //input聚焦时，placehloder消失，失焦时显示
 var oInput=document.getElementsByTagName('input')[0];
@@ -42,7 +43,7 @@ for(var i=2000;;i++){   //快速写出年份
     var j=new Date().getFullYear();
     if(i==j){
         opYear.innerHTML+='<option value="'+j+'">'+j+'</option>';
-        opYear.value=j;
+        opYear.value=0;
         break;
     }
     else{
@@ -61,12 +62,12 @@ function year(u){   //判断润平年
 
 for(var i=1;i<=12;i++){   //默认时间月份
     opMonth.innerHTML+='<option value="'+i+'">'+i+'</option>';
-    opMonth.value=1;
+    opMonth.value=0;
 }
 window.onload=function(){
     for(var i=1;i<=31;i++){   //默认时间日期
         opDay.innerHTML+='<option value="'+i+'">'+i+'</option>';
-        opDay.value=1;
+        opDay.value=0;
     } 
 }
 
@@ -79,7 +80,7 @@ function month2(){
             for(var j=1;j<=31;j++){  //快速写出日期
                 opDay.innerHTML+='<option value="'+j+'">'+j+'</option>';
             }
-            opDay.value='1';
+            opDay.value=0;
             break;
         }
         case '4','6','9','11':{
@@ -87,7 +88,7 @@ function month2(){
             for(var j=1;j<=30;j++){  //快速写出日期
                 opDay.innerHTML+='<option value="'+j+'">'+j+'</option>';
             }
-            opDay.value='1';
+            opDay.value=0;
             break;
         }
         case '2':{
@@ -102,11 +103,20 @@ function month2(){
                     opDay.innerHTML+='<option value="'+j+'">'+j+'</option>';
                 }
             }
-            opDay.value='1';
+            opDay.value=0;
             break;
         }                            
     }
 }
 
+//编辑文章时，输入自体一致
+var inText=document.getElementsByTagName('input')[1];
+var inTextArea=document.getElementById('writeIt').getElementsByTagName('textarea')[0];
+inText.oninput=function(){
+    this.style.fontSize='15px';
+}
+inTextArea.oninput=function(){
+    this.style.fontSize='15px';
+}
 
 

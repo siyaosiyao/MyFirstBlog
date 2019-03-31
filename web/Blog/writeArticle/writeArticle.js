@@ -28,7 +28,7 @@ inputArea.oninput=function(){
 
 var onSubmit=document.getElementById('submit');
 onSubmit.onclick=function(){
-    if(inputText.value!=''&&inputArea.value!=''){     //不可发布残文章
+    if(inputText.value!==''&&inputArea.value!==''){     //不可发布残文章
         window.location="../ArticleList/ArticleList.html"
     }
 }
@@ -41,6 +41,8 @@ pageI[1].onclick=function(){
 pageI[2].onclick=function(){
     window.location='../PersonalData/PersonalData.html';
 }
+pageI[3].style.backgroundColor='rgb(191, 235, 141)';
+console.log(pageI[3].style.backgroundColor);
 pageI[4].onclick=function(){
     window.location='../Search/Search.html';
 }

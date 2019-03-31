@@ -4,18 +4,24 @@
         <meta charset="UTF-8">
         <title>首页</title>
         <link rel="stylesheet" type="text/css" href="ArticleList.css"/>
+        <script src="../Ajax/AjaxOfarticleList.js"></script>
     </head>
     <body>
         <div id="oDiv1">
             <div id="oDiv2">
                 <div id="leftDiv"></div>
                 <div id="articleDiv">
-                    <div class='vis1'></div>
-                    <div class='vis1'></div>
-                    <div class='vis1'></div>
-                    <div class='vis1'></div>
-                    <div class='vis1'></div>
-                    <div class='vis1'></div>
+                </div>
+                <div id="writeIt">
+                    <div>
+                        <p style="font-weight:bold;">标题：</p>
+                        <input type="text" placeholder="请输入标题"/>
+                    </div>
+                    <div>
+                        <p style="margin:0;font-weight:bold;position: relative;top:-167px;">内容：</p>
+                        <textarea name="" id="theContain" style="width:423px;height:336px" placeholder="请输入内容"></textarea>
+                    </div>
+                    <div id='submit'><span>更新</span></div>
                 </div>
                 <div id='functionList'>
                     <div><img id='important' src="UI\Space.jpg" alt="网络技术工作室" ></div>
@@ -36,6 +42,6 @@
             </div>
         </div>
         <script src="ArticleList.js"></script>
-        <script src="..\Ajax\AjaxOfarticleList.js"></script>
+        <script src="../Ajax/AjaxOfarticleList.js"></script>
     </body>
 </html>

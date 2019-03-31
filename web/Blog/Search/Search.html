@@ -20,21 +20,35 @@
                             <div>
                                 <span>时间</span>
                                 <select name="" id="year">
+                                    <option value="0">选择</option>
                                 </select>  
                             </div>
                             <div>
                                 <select name="" id="month">
+                                    <option value="0">选择</option>
                                 </select>
                             </div>
                             <div>
                                 <select name="" id="day">
+                                    <option value="0">选择</option>
                                 </select>
+                            </div>
                         </div>
 
                     </div>
                     <div id='ifFound'>
                     </div>
-                </div>
+                    <div id="writeIt">
+                        <div>
+                            <p style="font-weight:bold;">标题：</p>
+                            <input type="text" placeholder="请输入标题"/>
+                        </div>
+                        <div>
+                            <p style="margin:0;font-weight:bold;position: relative;top:-167px;">内容：</p>
+                            <textarea name="" id="theContain" style="width:423px;height:336px" placeholder="请输入内容"></textarea>
+                        </div>
+                        <div id='submit'><span>更新</span></div>
+                    </div>
                 </div>
                 <div id='functionList'>
                     <div><img id='important' src="UI\Space.jpg" alt="网络技术工作室" ></div>
@@ -55,6 +69,6 @@
             </div>
         </div>
         <script src="Search.js"></script>
-        <script src="..\Ajax\AjaxOfSearch.js"></script>
+        <script src="../Ajax/AjaxOfSearch.js"></script>
     </body>
 </html>
